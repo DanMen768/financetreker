@@ -9,6 +9,7 @@ BUTTON_STYLE = {"font": ("Arial", 12)}
 #Root
 root = tk.Tk()
 root.geometry("900x350")
+root.configure(bg="#88E0EF")
 
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
