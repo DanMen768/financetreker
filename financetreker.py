@@ -19,7 +19,7 @@ def show_page(page):
     page.tkraise()
 
 # StartPage
-startpage = tk.Frame(root)
+startpage = tk.Frame(root, bg="#88E0EF")
 startpage.grid(row=0, column=0, sticky="nsew")
 
 startpage.grid_columnconfigure(0, weight=1)
@@ -35,7 +35,7 @@ tk.Button(startpage, text="Аналитика и Статистика", **BUTTON
 tk.Button(startpage, text="Поиск", **BUTTON_STYLE, command=lambda: show_page(search_operation)).grid(row=4, column=0, pady=20)
 
 # AddOperation
-add_operation = tk.Frame(root)
+add_operation = tk.Frame(root, bg="#88E0EF")
 add_operation.grid(row=0, column=0, sticky="nsew")
 
 add_operation.grid_columnconfigure(0, weight=1)
@@ -87,7 +87,7 @@ def save_operation():
 tk.Button(add_operation, text="Сохранить", **BUTTON_STYLE, command=save_operation).grid(row=5, column=0, padx=0)
 
 #ShowOperation
-show_operation = tk.Frame(root)
+show_operation = tk.Frame(root, bg="#88E0EF")
 show_operation.grid(row=0, column=0, sticky="nsew")
 
 show_operation.grid_columnconfigure(0, weight=1)
@@ -110,7 +110,7 @@ for i, op in enumerate(last10, start=2):
    tk.Label(show_operation, text=text).grid(row=i, column=0)
 
 #AnaliticStatisticstk 
-analytics_statistics = tk.Frame(root)
+analytics_statistics = tk.Frame(root, bg="#88E0EF")
 analytics_statistics.grid(row=0, column=0, sticky="nsew")
 table_frame = tk.Frame(analytics_statistics)
 table_frame.grid(row=1, column=0, sticky="nsew", pady=10)
@@ -135,7 +135,7 @@ except FileNotFoundError:
 columns = ["id", "type", "amount", "category", "description"]
 
 tree = ttk.Treeview(table_frame, columns=columns, show="headings", yscrollcommand=scrollbar.set)
-tree.grid(row=1, column=0, pady=20, sticky="nsew")
+tree.grid(row=1, column=0, pady=10, sticky="nsew")
 scrollbar.config(command=tree.yview)
 
 tree.heading("id", text="ID")
@@ -167,7 +167,7 @@ total_expenditure = sum(float(op.get("amount", 0)) for op in all_operation if op
 tk.Label(analytics_statistics, text=f"Всего заработано: {total_expenditure}", **TEXT_STYLE).grid(row=3, column=0, pady=10)
 
 #Search
-search_operation = tk.Frame(root)
+search_operation = tk.Frame(root, bg="#88E0EF")
 search_operation.grid(row=0, column=0, sticky="nsew")
 results_frame = tk.Frame(search_operation)
 results_frame.grid(row=5, column=0, pady=10, sticky="nsew")
